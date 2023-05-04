@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.rules = exports.SWord = void 0;
+exports.SWord = void 0;
 var letters = {
     vowel: {
         а: "а",
@@ -33,43 +33,9 @@ var letters = {
         ц: "ц",
         ч: "ч",
         ш: "ш",
-        щ: "щ"
+        щ: "щ",
     },
 };
-var rules = {
-    в: {
-        byType: {
-            vowel: [-1, 'е'],
-            consonant: [0, 'е']
-        },
-        byChars: {
-            'ай': [-1, 'е'],
-            'ь': [-1, 'и'],
-            'ие': [-1, 'и'],
-            'ия': [-1, 'и'],
-            'ый': [-2, 'ом'],
-            'ы': [-1, 'ах'],
-            'и': [-1, 'ах'],
-        },
-    },
-    с: {
-        byType: {
-            vowel: [-1, 'ой'],
-            consonant: [0, 'ом'],
-        },
-        byChars: {
-            'ай': [-1, 'ем'],
-            'ия': [-1, 'ей'],
-            'ие': [0, 'м'],
-            'о': [0, 'м'],
-            'ь': [0, 'ю'],
-            'ый': [-1, 'м'],
-            'ы': [-1, 'ами'],
-            'и': [-1, 'ами'],
-        },
-    },
-};
-exports.rules = rules;
 var SWord = /** @class */ (function () {
     function SWord(rules) {
         this.rules = rules;
@@ -77,7 +43,7 @@ var SWord = /** @class */ (function () {
     SWord.prototype.wordAttrs = function (word) {
         var endIndex = word.length - 1;
         var last = word[endIndex];
-        if (last === ',') {
+        if (last === ",") {
             endIndex--;
             last = word[endIndex];
         }
@@ -105,7 +71,9 @@ var SWord = /** @class */ (function () {
             var attrs = this.wordAttrs(word);
             if (attrs.canModify) {
                 var rule = config.byChars[attrs.end] || config.byType[attrs.type];
-                return word.slice(0, attrs.endIndex + 1 + rule[0]) + rule[1] + word.slice(attrs.endIndex + 1, word.length);
+                return (word.slice(0, attrs.endIndex + 1 + rule[0]) +
+                    rule[1] +
+                    word.slice(attrs.endIndex + 1, word.length));
             }
         }
         return word;

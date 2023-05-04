@@ -1,36 +1,3 @@
-declare const rules: {
-    в: {
-        byType: {
-            vowel: (string | number)[];
-            consonant: (string | number)[];
-        };
-        byChars: {
-            ай: (string | number)[];
-            ь: (string | number)[];
-            ие: (string | number)[];
-            ия: (string | number)[];
-            ый: (string | number)[];
-            ы: (string | number)[];
-            и: (string | number)[];
-        };
-    };
-    с: {
-        byType: {
-            vowel: (string | number)[];
-            consonant: (string | number)[];
-        };
-        byChars: {
-            ай: (string | number)[];
-            ия: (string | number)[];
-            ие: (string | number)[];
-            о: (string | number)[];
-            ь: (string | number)[];
-            ый: (string | number)[];
-            ы: (string | number)[];
-            и: (string | number)[];
-        };
-    };
-};
 interface WordChangeRule {
     slice: number;
     replace: string;
@@ -58,4 +25,4 @@ declare class SWord {
     modifyWord(word: string, preposition: string): string;
     changeWordByPreposition(preposition: string, word: string, maxChangeIndex: number): string;
 }
-export { SWord, rules };
+export { SWord };

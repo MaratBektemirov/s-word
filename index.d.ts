@@ -1,5 +1,5 @@
 type WordChangeRule = [number, string];
-interface WordChangeRules {
+export interface WordChangeRules {
     byType: {
         vowel: WordChangeRule;
         consonant: WordChangeRule;

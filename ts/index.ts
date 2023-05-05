@@ -34,10 +34,7 @@ const letters = {
   },
 };
 
-interface WordChangeRule {
-  slice: number;
-  replace: string;
-}
+type WordChangeRule = [number, string]
 
 interface WordChangeRules {
   byType: {

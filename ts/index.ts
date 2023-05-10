@@ -36,7 +36,7 @@ const letters = {
 
 type WordChangeRule = [number, string]
 
-export interface WordChangeRules {
+interface WordChangeRules {
   byType: {
     vowel: WordChangeRule;
     consonant: WordChangeRule;
@@ -121,4 +121,4 @@ class SWord {
   }
 }
 
-export { SWord };
+export { SWord, WordChangeRules };

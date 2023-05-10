@@ -1,5 +1,5 @@
 type WordChangeRule = [number, string];
-export interface WordChangeRules {
+interface WordChangeRules {
     byType: {
         vowel: WordChangeRule;
         consonant: WordChangeRule;
@@ -22,4 +22,4 @@ declare class SWord {
     modifyWord(word: string, preposition: string): string;
     changeWordByPreposition(preposition: string, word: string, maxChangeIndex: number): string;
 }
-export { SWord };
+export { SWord, WordChangeRules };
